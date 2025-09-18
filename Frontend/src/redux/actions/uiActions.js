@@ -9,7 +9,7 @@ export const toggleSidebar = () => ({
 //   'fetchUser',
 //   async ({ rejectWithValue }) => {
 //     try {
-//       const responce = await axios.get("http://localhost:3000/api/auth/fetchUser", {
+//       const responce = await axios.get("https://nexo-chat-bot.onrender.com/api/auth/fetchUser", {
 //         withCredentials: true,
 //       });
 //       const data = await res.json();

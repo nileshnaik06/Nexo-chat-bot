@@ -8,7 +8,7 @@ export const fetchChats = createAsyncThunk(
     async (_, { rejectWithValue }) => {
         try {
             const response = await axios.get(
-                'http://localhost:3000/api/chat/',
+                'https://nexo-chat-bot.onrender.com/api/chat/',
                 { withCredentials: true }
             );
             return response.data;
@@ -25,7 +25,7 @@ export const createChat = createAsyncThunk(
     async (title, { rejectWithValue }) => {
         try {
             const response = await axios.post(
-                'http://localhost:3000/api/chat/',
+                'https://nexo-chat-bot.onrender.com/api/chat/',
                 { title }, // ensure backend expects an object
                 { withCredentials: true } // important
             );
@@ -41,7 +41,7 @@ export const createChat = createAsyncThunk(
 //     async (message, { rejectWithValue }) => {
 //         console.log(message)
 //         try {
-//             const response = await axios.post('http://localhost:3000/api/chat/message', message, { withCredentials: true })
+//             const response = await axios.post('https://nexo-chat-bot.onrender.com/api/chat/message', message, { withCredentials: true })
 //             console.log(response.data)
 //             return response.data
 //         } catch (error) {
@@ -57,7 +57,7 @@ export const fetchMessages = createAsyncThunk(
     async (chatId, { rejectWithValue }) => {
         try {
             const response = await axios.get(
-                `http://localhost:3000/api/chat/message/${chatId}`,
+                `https://nexo-chat-bot.onrender.com/api/chat/message/${chatId}`,
                 { withCredentials: true }
             );
             // return { ...response.data.message };

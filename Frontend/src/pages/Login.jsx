@@ -26,7 +26,7 @@ const Login = () => {
 
     axios
       .post(
-        "http://localhost:3000/api/auth/login",
+        "https://nexo-chat-bot.onrender.com/api/auth/login",
         {
           email: form.email,
           password: form.password,

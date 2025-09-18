@@ -24,7 +24,7 @@ const ChatArea = ({ messages, setMessages }) => {
 
   useEffect(() => {
     if (!socket) {
-      const tempSocket = io("http://localhost:3000", { withCredentials: true });
+      const tempSocket = io("https://nexo-chat-bot.onrender.com", { withCredentials: true });
 
       tempSocket.on("connect", () => {
         tempSocket.on("model-resp", (messagePayload) => {

@@ -27,7 +27,7 @@ const Sidebar = ({ setMessages }) => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/auth/fetchUser", {
+        const res = await fetch("https://nexo-chat-bot.onrender.com/api/auth/fetchUser", {
           method: "GET",
           credentials: "include",
           headers: {
@@ -137,7 +137,7 @@ const Sidebar = ({ setMessages }) => {
                 onClick={async () => {
                   try {
                     const res = await fetch(
-                      "http://localhost:3000/api/auth/logout",
+                      "https://nexo-chat-bot.onrender.com/api/auth/logout",
                       {
                         method: "POST",
                         credentials: "include",

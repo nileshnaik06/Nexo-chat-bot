@@ -42,7 +42,7 @@ const Register = () => {
 
     axios
       .post(
-        "http://localhost:3000/api/auth/register",
+        "https://nexo-chat-bot.onrender.com/api/auth/register",
         {
           email: form.email,
           fullName: {
