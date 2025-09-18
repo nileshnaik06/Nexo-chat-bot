@@ -20,7 +20,7 @@ const Home = () => {
           >
             ☰
           </button>
-          <h3>GPT-clone</h3>
+          <h3>Nexo</h3>
         </div>
         <ChatArea messages={messages} setMessages={setmessages} />
       </div>
