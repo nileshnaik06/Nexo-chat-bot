@@ -1,6 +1,9 @@
-import Sidebar from "../components/Sidebar/Sidebar";
-import ChatArea from "../components/ChatArea/ChatArea";
 import { useDispatch } from "react-redux";
+import { Suspense, lazy } from "react";
+import Loader from "../components/loader/loader.jsx";
+
+const Sidebar = lazy(() => import("../components/Sidebar/Sidebar"));
+const ChatArea = lazy(() => import("../components/ChatArea/ChatArea"));
 import { toggleSidebar } from "../redux/uiSlice";
 import "./Home.css";
 import { useState } from "react";
@@ -11,7 +14,9 @@ const Home = () => {
 
   return (
     <div className="home">
-      <Sidebar messages={messages} setMessages={setmessages} />
+      <Suspense fallback={<Loader message="Loading sidebar"/>}>
+        <Sidebar messages={messages} setMessages={setmessages} />
+      </Suspense>
       <div className="main-content">
         <div className="nav">
           <button
@@ -22,7 +27,9 @@ const Home = () => {
           </button>
           <h3>Nexo</h3>
         </div>
-        <ChatArea messages={messages} setMessages={setmessages} />
+        <Suspense fallback={<Loader message="Loading chat"/>}>
+          <ChatArea messages={messages} setMessages={setmessages} />
+        </Suspense>
       </div>
     </div>
   );

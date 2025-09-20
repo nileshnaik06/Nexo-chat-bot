@@ -1,7 +1,10 @@
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-import MainRoute from "./Routes/MainRoute";
 import { Bounce, ToastContainer } from "react-toastify";
+import { Suspense, lazy } from "react";
+import Loader from "./components/loader/loader.jsx";
+
+const MainRoute = lazy(() => import("./Routes/MainRoute"));
 
 function App() {
   return (
@@ -19,7 +22,9 @@ function App() {
         theme="dark"
         transition={Bounce}
       />
-      <MainRoute />
+      <Suspense fallback={<Loader message="Loading app"/>}>
+        <MainRoute />
+      </Suspense>
     </Provider>
   );
 }

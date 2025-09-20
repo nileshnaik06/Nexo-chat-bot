@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 FIXES.md
+CHANGES_LOADER_AND_LAZY.md
 
 # Editor directories and files
 .vscode/*

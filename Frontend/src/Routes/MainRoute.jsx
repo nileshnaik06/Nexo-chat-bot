@@ -1,16 +1,21 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "../pages/Home.jsx";
-import Login from "../pages/login.jsx";
-import Register from "../pages/Register.jsx";
+import { Suspense, lazy } from "react";
+import Loader from "../components/loader/loader.jsx";
+
+const Home = lazy(() => import("../pages/Home.jsx"));
+const Login = lazy(() => import("../pages/Login.jsx"));
+const Register = lazy(() => import("../pages/Register.jsx"));
 
 const MainRoute = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
+      <Suspense fallback={<Loader message="Loading page"/>}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 };
